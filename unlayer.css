@@ -1,0 +1,36 @@
+.actions-container {
+  background-color: #2d4460;
+}
+
+.nav-tabs {
+  background-color: #2d4460;
+}
+
+.nav-tabs .nav-item .nav-link {
+  color: #fff !important;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  background-color: #223348 !important;
+  color: #8ceabd !important;
+}
+
+.nav-tabs .nav-item .nav-link:hover {
+  background-color: #627388 !important;
+}
+
+.nav-notification-icon {
+  background-color: #9c4527 !important;
+}
+
+.tab-content {
+  background-color: #f2f6fa !important;
+}
+
+.blockbuilder-content-tool-icon {
+  color: #2d4460 !important;
+}
+
+.blockbuilder-content-tool-name {
+  color: #2d4460 !important;
+}
