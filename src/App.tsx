@@ -1,8 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.scss";
 
-import { Button } from 'primereact/button';
+import { Button } from "primereact/button";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         >
           Learn React
         </a>
-        <Button type='button' label='Save'/>
+        <Button type="button" label="Save" />
       </header>
     </div>
   );
