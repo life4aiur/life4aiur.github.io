@@ -1,10 +1,18 @@
-@import "primereact/resources/themes/arya-orange/theme.css";
+@import "primereact/resources/themes/vela-orange/theme.css";
 @import "primereact/resources/primereact.min.css";
 @import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+
+* {
+  --font-family: "Oxygen", sans-serif;
+}
 
 body {
+  background-color: var(--surface-ground);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-weight: 400;
   margin: 0;
-  font-family: "Oxygen", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -15,5 +23,5 @@ code {
 }
 
 .p-component {
-  font-family: "Oxygen", sans-serif;
+  font-family: var(--font-family);
 }
