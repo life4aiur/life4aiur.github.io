@@ -10,16 +10,16 @@ function App() {
       <section className="app-content">
         <div className="grid">
           <div className="col-12 md:col-6 lg:col-3">
-          <Card>A</Card>
+            <Card>A</Card>
           </div>
           <div className="col-12 md:col-6 lg:col-3">
-          <Card>A</Card>
+            <Card>A</Card>
           </div>
           <div className="col-12 md:col-6 lg:col-3">
-          <Card>A</Card>
+            <Card>A</Card>
           </div>
           <div className="col-12 md:col-6 lg:col-3">
-          <Card>A</Card>
+            <Card>A</Card>
           </div>
         </div>
       </section>
