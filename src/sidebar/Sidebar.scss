@@ -1,0 +1,10 @@
+.sidebar__content {
+  display: none !important;
+}
+
+@media (min-width: 1024px) {
+  .sidebar__content {
+    display: flex !important;
+    width: 18rem;
+  }
+}

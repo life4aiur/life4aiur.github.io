@@ -35,15 +35,4 @@
       padding-left: 18rem;
     }
   }
-
-  @media (min-width: 1024px) {
-    .app__side__content {
-      display: flex !important;
-      width: 18rem;
-    }
-  }
-
-  &__side__content {
-    display: none !important;
-  }
 }
