@@ -17,9 +17,9 @@ function Sidebar() {
           front-end development, Star Wars, and generally silly things.
         </p>
         <nav className="flex flex-column flex-1">
-          <ul className="flex flex-column flex-1">
+          <ul className="flex flex-column flex-1 list-none m-0 px-3">
             <li>
-              <ul>
+              <ul className="list-none m-0 p-0">
                 <li>About</li>
                 <li>Work</li>
                 <li>Contact</li>
