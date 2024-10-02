@@ -4,6 +4,7 @@ import "./App.scss";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 import Sidebar from "./sidebar/Sidebar";
+import { Card } from "primereact/card";
 
 interface Repo {
   name: string;
@@ -11,10 +12,11 @@ interface Repo {
   stargazers: number;
   language: string;
   forks: number;
-  homepage: string;
+  url: string;
 }
 
 function App() {
+  const userHome = `https://github.com/life4aiur`;
   const [repoList, setRepoList] = useState<Repo[]>([]);
 
   // const getRepos = async () => {
@@ -127,7 +129,7 @@ function App() {
     async function getRepos() {
       let repos: any[] = [];
       let res;
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 1; i++) {
         res = await fetch(
           `https://api.github.com/users/life4aiur/repos?&sort=pushed&per_page=100&page=${i}`
           // {
@@ -141,6 +143,7 @@ function App() {
         const data = await res.json();
         repos = repos.concat(data);
       }
+      console.log(repos);
       repos.sort((a, b) => b.forks_count - a.forks_count);
       repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
 
@@ -162,7 +165,7 @@ function App() {
           stargazers: repo.stargazers_count,
           language: repo.language,
           forks: repo.forks_count,
-          homepage: repo.homepage,
+          url: repo.html_url,
         };
 
         listItems.push(listItem);
@@ -197,18 +200,52 @@ function App() {
             <section>
               <div className="surface-0 p-4 shadow-2 border-round">
                 <div className="text-3xl font-medium text-900 mb-3">Work</div>
-                <div className="font-medium text-500 mb-3">
+                <ul
+                  role="list"
+                  className="flex flex-wrap justify-content-center gap-3"
+                >
                   {repoList.map((x: Repo, i: number) => (
-                    <ul key={i}>
-                      <li>{x.name}</li>
-                      <li>{x.description}</li>
-                      <li>{x.forks}</li>
-                      <li>{x.homepage}</li>
-                      <li>{x.language}</li>
-                      <li>{x.stargazers}</li>
-                    </ul>
+                    <Card
+                      role="listitem"
+                      className="border-round flex-1 h-10rem bg-primary font-bold flex align-items-center justify-content-center"
+                      key={i}
+                    >
+                      <a className="justify-content-center" href={x.url}>
+                        <h3>{x.name}</h3>
+                      </a>
+                      <span>{x.description}</span>
+                      <div className="flex flex-wrap justify-content-center gap-3">
+                        <a href={`${x.url}/stargazers`}>
+                          <i className="pi pi-star"></i>
+                          {x.stargazers}
+                        </a>
+                        <a
+                          href={`${userHome}?tab=repositories&q=&language=${x.language}`}
+                        >
+                          <i
+                            className={`devicon-${x.language.toLowerCase()}-plain colored`}
+                          ></i>
+                          {x.language}
+                        </a>
+                        <a href={`${userHome}/${x.name}/network/members`}>
+                          <i className={`devicon-git-plain colored`}></i>
+                          {x.forks}
+                        </a>
+                      </div>
+                    </Card>
+                    // <Card
+                    //   className="flex-1 h-10rem bg-primary font-bold text-center p-3 gap-3 border-round align-items-center justify-content-center"
+                    //   key={i}
+                    // >
+                    //   <div>{x.name}</div>
+                    //   <div>{x.description}</div>
+                    //   <div>{x.forks}</div>
+                    //   <div>{x.homepage}</div>
+                    //   <div>{x.language}</div>
+                    //   <div>{x.stargazers}</div>
+                    // </Card>
                   ))}
-                </div>
+                </ul>
                 <div
                   style={{ height: "150px" }}
                   className="border-2 border-dashed border-300"
