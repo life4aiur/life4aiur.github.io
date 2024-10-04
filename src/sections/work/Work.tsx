@@ -99,8 +99,8 @@ function Work() {
     <ul role="list" className="flex flex-wrap justify-content-center gap-5">
       <div className="grid">
         {repoList.map((x: Repo, i: number) => (
-          <div className="col-12 md:col-6 lg:col-4 xl:col-3">
-            <RepoCard repo={x} key={i} />
+          <div className="col-12 md:col-6 lg:col-4 xl:col-3" key={i}>
+            <RepoCard repo={x} />
           </div>
         ))}
       </div>

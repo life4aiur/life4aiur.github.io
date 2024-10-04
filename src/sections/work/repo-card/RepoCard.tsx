@@ -10,7 +10,7 @@ function RepoCard(props: RepoCardProps) {
 
   const cardHeader = (repo: Repo) => (
     <a
-      className="flex justify-content-center text-xl text-indigo-800"
+      className="flex justify-content-center text-xl text-indigo-800 text-center"
       href={repo.url}
     >
       {repo.name}
@@ -45,7 +45,7 @@ function RepoCard(props: RepoCardProps) {
   return (
     <div
       role="listitem"
-      className="col flex flex-1 flex-column bg-primary h-full py-3 px-5 m-3 border-round shadow-8"
+      className="flex flex-1 flex-column bg-primary h-full py-3 px-5 border-round shadow-8"
     >
       {cardHeader(props.repo)}
       <div className="flex flex-1 flex-column py-3 text-center">
