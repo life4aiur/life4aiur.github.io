@@ -1,14 +1,18 @@
-@import "primereact/resources/themes/arya-orange/theme.css";
+//@import "primereact/resources/themes/arya-orange/theme.css";
+//@import "primereact/resources/themes/lara-dark-blue/theme.css";
+//@import "primereact/resources/themes/viva-dark/theme.css";
+
+@import "primereact/resources/themes/vela-orange/theme.css";
 @import "primereact/resources/primereact.min.css";
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
 
 * {
-  --font-family: "Oxygen", sans-serif;
+  --font-family: Ubuntu, sans-serif;
 }
 
 body {
-  background-color: var(--surface-ground);
+  background-color: var(--surface-100);
   color: var(--text-color);
   font-family: var(--font-family);
   font-weight: 400;

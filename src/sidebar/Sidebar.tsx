@@ -3,7 +3,7 @@ import "./Sidebar.scss";
 
 function Sidebar() {
   return (
-    <div className="sidebar__content flex-column bg-blue-900 z-5 fixed top-0 bottom-0">
+    <div className="sidebar__content flex-column surface-0 z-5 fixed top-0 bottom-0">
       <div className="flex flex-column flex-grow-1 p-2 gap-3 overflow-y-auto">
         <Avatar
           className="flex flex-shrink-0 align-self-center m-2 w-7 h-auto"

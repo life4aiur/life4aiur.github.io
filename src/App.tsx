@@ -4,7 +4,6 @@ import "./App.scss";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 import Sidebar from "./sidebar/Sidebar";
-import { Card } from "primereact/card";
 
 interface Repo {
   name: string;
@@ -16,6 +15,7 @@ interface Repo {
 }
 
 function App() {
+  const isDevMode = process.env.NODE_ENV === "development";
   const userHome = `https://github.com/life4aiur`;
   const [repoList, setRepoList] = useState<Repo[]>([]);
 
@@ -128,55 +128,126 @@ function App() {
     // https://github.com/2KAbhishek/projects/blob/main/script.js
     async function getRepos() {
       let repos: any[] = [];
-      let res;
-      for (let i = 1; i <= 1; i++) {
-        res = await fetch(
-          `https://api.github.com/users/life4aiur/repos?&sort=pushed&per_page=100&page=${i}`
-          // {
-          //     headers: {
-          //         Accept: 'application/vnd.github+json',
-          //         Authorization:
-          //             'token your-personal-access-token-here'
-          //     }
-          // }
+
+      if (isDevMode) {
+        setRepoList([
+          {
+            name: "life4aiur.github.io",
+            description: "My basic GitHub page and general playground.",
+            stargazers: 0,
+            language: "TypeScript",
+            forks: 0,
+            url: "https://github.com/life4aiur/life4aiur.github.io",
+          },
+          {
+            name: "stencil-framework-integration",
+            description:
+              "This repository serves as a comprehensive guide and demonstration of how to integrate Stencil components into various frontend frameworks.",
+            stargazers: 0,
+            language: "TypeScript",
+            forks: 0,
+            url: "https://github.com/life4aiur/stencil-framework-integration",
+          },
+          {
+            name: "storybook-theme-toggle",
+            description:
+              "This repository provides an easy-to-implement theme toggle for Storybook, allowing you to switch between light, dark, and user-defined modes seamlessly.",
+            stargazers: 0,
+            language: "TypeScript",
+            forks: 0,
+            url: "https://github.com/life4aiur/storybook-theme-toggle",
+          },
+          {
+            name: "storybook-theme-toggle",
+            description:
+              "This repository provides an easy-to-implement theme toggle for Storybook, allowing you to switch between light, dark, and user-defined modes seamlessly.",
+            stargazers: 0,
+            language: "TypeScript",
+            forks: 0,
+            url: "https://github.com/life4aiur/storybook-theme-toggle",
+          },
+          {
+            name: "storybook-theme-toggle",
+            description:
+              "This repository provides an easy-to-implement theme toggle for Storybook, allowing you to switch between light, dark, and user-defined modes seamlessly.",
+            stargazers: 0,
+            language: "TypeScript",
+            forks: 0,
+            url: "https://github.com/life4aiur/storybook-theme-toggle",
+          },
+        ]);
+      } else {
+        const res = await fetch(
+          `https://api.github.com/users/life4aiur/repos?&sort=pushed&per_page=100&page=1`
         );
         const data = await res.json();
         repos = repos.concat(data);
-      }
-      console.log(repos);
-      repos.sort((a, b) => b.forks_count - a.forks_count);
-      repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+        repos.sort((a, b) => b.forks_count - a.forks_count);
+        repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
 
-      //const userHome = `https://github.com/life4aiur`;
-      const listItems = [];
+        const listItems = [];
 
-      for (const repo of repos) {
-        if (repo.fork) {
-          continue;
+        for (const repo of repos) {
+          if (repo.fork) {
+            continue;
+          }
+
+          // const langUrl = `${userHome}?tab=repositories&q=&language=${repo.language}`;
+          // const starsUrl = `${userHome}/${repo.name}/stargazers`;
+          // const forksUrl = `${userHome}/${repo.name}/network/members`;
+
+          const listItem = {
+            name: repo.name,
+            description: repo.description,
+            stargazers: repo.stargazers_count,
+            language: repo.language,
+            forks: repo.forks_count,
+            url: repo.html_url,
+          };
+
+          listItems.push(listItem);
         }
 
-        // const langUrl = `${userHome}?tab=repositories&q=&language=${repo.language}`;
-        // const starsUrl = `${userHome}/${repo.name}/stargazers`;
-        // const forksUrl = `${userHome}/${repo.name}/network/members`;
-
-        const listItem = {
-          name: repo.name,
-          description: repo.description,
-          stargazers: repo.stargazers_count,
-          language: repo.language,
-          forks: repo.forks_count,
-          url: repo.html_url,
-        };
-
-        listItems.push(listItem);
+        setRepoList(listItems);
       }
-
-      setRepoList(listItems);
     }
 
     getRepos();
-    console.log(repoList);
   }, []);
+
+  const cardHeader = (repo: Repo) => (
+    <a
+      className="flex justify-content-center text-xl text-indigo-800"
+      href={repo.url}
+    >
+      {repo.name}
+    </a>
+  );
+
+  const cardFooter = (repo: Repo) => (
+    <div className="flex flex-wrap justify-content-center gap-3">
+      <a className="text-indigo-400" href={`${repo.url}/stargazers`}>
+        <i className="pi pi-star m-1"></i>
+        {repo.stargazers}
+      </a>
+      <a
+        className="text-indigo-400"
+        href={`${userHome}?tab=repositories&q=&language=${repo.language}`}
+      >
+        <i
+          className={`inline-block devicon-${repo.language.toLowerCase()}-plain colored m-1`}
+        ></i>
+        {repo.language}
+      </a>
+      <a
+        className="text-indigo-400"
+        href={`${userHome}/${repo.name}/network/members`}
+      >
+        <i className="inline-block devicon-git-plain colored m-1"></i>
+        {repo.forks}
+      </a>
+    </div>
+  );
 
   return (
     <div className="app">
@@ -186,7 +257,7 @@ function App() {
           <Header />
           <main>
             <section>
-              <div className="surface-0 p-4 shadow-2 border-round">
+              <div className="p-4">
                 <div className="text-3xl font-medium text-900 mb-3">About</div>
                 <div className="font-medium text-500 mb-3">
                   Vivamus id nisl interdum, blandit augue sit amet, eleifend mi.
@@ -198,62 +269,34 @@ function App() {
               </div>
             </section>
             <section>
-              <div className="surface-0 p-4 shadow-2 border-round">
+              <div className="p-4">
                 <div className="text-3xl font-medium text-900 mb-3">Work</div>
                 <ul
                   role="list"
-                  className="flex flex-wrap justify-content-center gap-3"
+                  className="flex flex-wrap justify-content-center gap-5"
                 >
-                  {repoList.map((x: Repo, i: number) => (
-                    <Card
-                      role="listitem"
-                      className="border-round flex-1 h-10rem bg-primary font-bold flex align-items-center justify-content-center"
-                      key={i}
-                    >
-                      <a className="justify-content-center" href={x.url}>
-                        <h3>{x.name}</h3>
-                      </a>
-                      <span>{x.description}</span>
-                      <div className="flex flex-wrap justify-content-center gap-3">
-                        <a href={`${x.url}/stargazers`}>
-                          <i className="pi pi-star"></i>
-                          {x.stargazers}
-                        </a>
-                        <a
-                          href={`${userHome}?tab=repositories&q=&language=${x.language}`}
+                  <div className="grid">
+                    {repoList.map((x: Repo, i: number) => (
+                      <div className="col-12 md:col-6 lg:col-4 xl:col-3">
+                        <div
+                          role="listitem"
+                          className="flex flex-1 flex-column bg-primary h-full py-3 px-5 m-3 border-round shadow-8"
+                          key={i}
                         >
-                          <i
-                            className={`devicon-${x.language.toLowerCase()}-plain colored`}
-                          ></i>
-                          {x.language}
-                        </a>
-                        <a href={`${userHome}/${x.name}/network/members`}>
-                          <i className={`devicon-git-plain colored`}></i>
-                          {x.forks}
-                        </a>
+                          {cardHeader(x)}
+                          <div className="flex flex-1 flex-column py-3 text-center">
+                            {x.description}
+                          </div>
+                          {cardFooter(x)}
+                        </div>
                       </div>
-                    </Card>
-                    // <Card
-                    //   className="flex-1 h-10rem bg-primary font-bold text-center p-3 gap-3 border-round align-items-center justify-content-center"
-                    //   key={i}
-                    // >
-                    //   <div>{x.name}</div>
-                    //   <div>{x.description}</div>
-                    //   <div>{x.forks}</div>
-                    //   <div>{x.homepage}</div>
-                    //   <div>{x.language}</div>
-                    //   <div>{x.stargazers}</div>
-                    // </Card>
-                  ))}
+                    ))}
+                  </div>
                 </ul>
-                <div
-                  style={{ height: "150px" }}
-                  className="border-2 border-dashed border-300"
-                ></div>
               </div>
             </section>
             <section>
-              <div className="surface-0 p-4 shadow-2 border-round">
+              <div className="p-4">
                 <div className="text-3xl font-medium text-900 mb-3">
                   Contact
                 </div>
