@@ -45,7 +45,7 @@ function RepoCard(props: RepoCardProps) {
   return (
     <div
       role="listitem"
-      className="flex flex-1 flex-column bg-primary h-full py-3 px-5 m-3 border-round shadow-8"
+      className="col flex flex-1 flex-column bg-primary h-full py-3 px-5 m-3 border-round shadow-8"
     >
       {cardHeader(props.repo)}
       <div className="flex flex-1 flex-column py-3 text-center">
