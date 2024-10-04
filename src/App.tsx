@@ -18,24 +18,22 @@ function App() {
     </div>
   );
 
-  return (
-    <div className="app">
-      <section className="app-content">
-        <Sidebar></Sidebar>
-        <div className="app__content">
-          <Header />
-          <main>
-            <Section title="About">{dummyPlaceholder}</Section>
-            <Section title="Work">
-              <Work></Work>
-            </Section>
-            <Section title="Contact">{dummyPlaceholder}</Section>
-          </main>
-          <Footer />
-        </div>
-      </section>
-    </div>
-  );
+  return [
+    <Header />,
+    <section className="app__main">
+      <Sidebar></Sidebar>
+      <div className="app__content">
+        <main>
+          <Section title="About">{dummyPlaceholder}</Section>
+          <Section title="Work">
+            <Work></Work>
+          </Section>
+          <Section title="Contact">{dummyPlaceholder}</Section>
+        </main>
+      </div>
+      <Footer />
+    </section>,
+  ];
 }
 
 export default App;

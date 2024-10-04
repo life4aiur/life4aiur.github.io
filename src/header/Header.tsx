@@ -4,7 +4,7 @@ import { Avatar } from "primereact/avatar";
 
 function Header() {
   return (
-    <header className="flex justify-content-between flex-wrap bg-blue-900">
+    <header className="app__header flex justify-content-between flex-wrap bg-blue-900">
       <h3 className="flex align-items-center justify-content-center m-2">
         Always under construction
       </h3>

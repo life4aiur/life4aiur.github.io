@@ -1,9 +1,5 @@
-.app {
-  &-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
+@media (min-width: 1024px) {
+  .app__header {
+    padding-left: 18rem;
   }
 }
