@@ -1,3 +1,4 @@
+import ScrollToHashElement from "@cascadia-code/scroll-to-hash-element";
 import "./App.scss";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
@@ -19,16 +20,21 @@ function App() {
   );
 
   return [
+    <ScrollToHashElement behavior="smooth" />,
     <Header />,
     <section className="app__main">
       <Sidebar></Sidebar>
       <div className="app__content">
         <main>
-          <Section title="About">{dummyPlaceholder}</Section>
-          <Section title="Work">
+          <Section id="about-section" title="About">
+            {dummyPlaceholder}
+          </Section>
+          <Section id="work-section" title="Work">
             <Work></Work>
           </Section>
-          <Section title="Contact">{dummyPlaceholder}</Section>
+          <Section id="contact-section" title="Contact">
+            {dummyPlaceholder}
+          </Section>
         </main>
       </div>
       <Footer />

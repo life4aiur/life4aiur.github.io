@@ -1,4 +1,6 @@
 import { Avatar } from "primereact/avatar";
+import ghMarkUrl from "../assets/gh_invertocat.png";
+import ghLogoUrl from "../assets/gh_logo.png";
 import "./Sidebar.scss";
 
 function Sidebar() {
@@ -17,15 +19,32 @@ function Sidebar() {
           front-end development, Star Wars, and generally silly things.
         </p>
         <nav className="flex flex-column flex-1">
-          <ul className="flex flex-column flex-1 list-none m-0 px-3">
+          <ul className="flex flex-column flex-1 list-none m-0 px-3 text-lg">
             <li>
               <ul className="list-none m-0 p-0">
-                <li>About</li>
-                <li>Work</li>
-                <li>Contact</li>
+                <li className="p-2">
+                  <a href="/#about-section">About</a>
+                </li>
+                <li className="p-2">
+                  <a href="/#work-section">Work</a>
+                </li>
+                <li className="p-2">
+                  <a href="/#contact-section">Contact</a>
+                </li>
               </ul>
             </li>
-            <li className="mt-auto">Github</li>
+            <li className="mt-auto p-2 align-self-center">
+              <a href="https://github.com/life4aiur" aria-label="GitHub">
+                <div className="flex h-2rem">
+                  <img src={ghMarkUrl} alt="GitHub logo"></img>
+                  <img
+                    className="pl-1"
+                    src={ghLogoUrl}
+                    alt="GitHub invertocat logo"
+                  ></img>
+                </div>
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
