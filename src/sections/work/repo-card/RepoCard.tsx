@@ -1,4 +1,4 @@
-import { Repo } from "../Interfaces";
+import { Repo } from "../../../Interfaces";
 import "./RepoCard.scss";
 
 interface RepoCardProps {

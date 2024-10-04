@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Repo } from "../Interfaces";
-import RepoCard from "../repo-card/RepoCard";
+import { Repo } from "../../Interfaces";
+import RepoCard from "./repo-card/RepoCard";
 import "./Work.scss";
 
 function Work() {

@@ -2,8 +2,8 @@ import "./App.scss";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 import Section from "./sections/Section";
+import Work from "./sections/work/Work";
 import Sidebar from "./sidebar/Sidebar";
-import Work from "./work/Work";
 
 function App() {
   const dummyPlaceholder = (
