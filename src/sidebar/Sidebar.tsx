@@ -1,6 +1,4 @@
 import { Avatar } from "primereact/avatar";
-import ghMarkUrl from "../assets/gh_invertocat.png";
-import ghLogoUrl from "../assets/gh_logo.png";
 import "./Sidebar.scss";
 
 function Sidebar() {
@@ -34,16 +32,28 @@ function Sidebar() {
               </ul>
             </li>
             <li className="mt-auto p-2 align-self-center">
-              <a href="https://github.com/life4aiur" aria-label="GitHub">
-                <div className="flex h-2rem">
-                  <img src={ghMarkUrl} alt="GitHub logo"></img>
-                  <img
-                    className="pl-1"
-                    src={ghLogoUrl}
-                    alt="GitHub invertocat logo"
-                  ></img>
-                </div>
-              </a>
+              <div className="flex gap-5">
+                <a
+                  href="https://github.com/life4aiur"
+                  aria-label="GitHub"
+                  className="no-underline"
+                >
+                  <i
+                    role="presentation"
+                    className="flex text-4xl text-color devicon-github-original-wordmark"
+                  ></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/andrew-st-jean-6984b112/"
+                  aria-label="LinkedIn"
+                  className="no-underline"
+                >
+                  <i
+                    role="presentation"
+                    className="flex text-4xl text-color devicon-linkedin-plain"
+                  ></i>
+                </a>
+              </div>
             </li>
           </ul>
         </nav>
