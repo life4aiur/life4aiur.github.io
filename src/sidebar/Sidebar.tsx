@@ -40,7 +40,7 @@ function Sidebar() {
                 >
                   <i
                     role="presentation"
-                    className="flex text-4xl text-color devicon-github-original-wordmark"
+                    className="flex text-4xl devicon-github-original-wordmark"
                   ></i>
                 </a>
                 <a
@@ -50,7 +50,7 @@ function Sidebar() {
                 >
                   <i
                     role="presentation"
-                    className="flex text-4xl text-color devicon-linkedin-plain"
+                    className="flex text-4xl devicon-linkedin-plain"
                   ></i>
                 </a>
               </div>
