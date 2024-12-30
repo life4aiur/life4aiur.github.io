@@ -1,32 +1,3 @@
-// .app {
-//   display: flex;
-
-//   &-header {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     color: white;
-//   }
-
-//   &-content {
-//     flex: 1;
-//     overflow-y: auto;
-//   }
-
-//   &__content {
-//     display: flex;
-//     flex-direction: column;
-//     height: 100vh;
-//     transition: padding-left 0.3s ease-in-out both;
-//   }
-
-//   main {
-//     display: flex;
-//     flex-grow: 1;
-//     flex-direction: column;
-//   }
-
 .app__main {
   display: flex;
   flex-direction: column;
@@ -37,7 +8,7 @@
 .app__content {
   flex-grow: 1;
   padding: 1.5rem 3.5rem;
-  transition: padding-left 0.3s ease-in-out both;
+  transition: padding-left 0.3s ease-in-out;
 }
 
 @media (min-width: 1024px) {

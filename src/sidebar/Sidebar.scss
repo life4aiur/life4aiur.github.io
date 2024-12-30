@@ -1,5 +1,9 @@
 .sidebar__content {
-  display: none !important;
+  transition: left 0.3s ease-in-out;
+  width: 18rem;
+  left: -18rem;
+
+  display: flex !important;
 
   .no-underline {
     transition: transform 0.3s ease-in-out;
@@ -22,7 +26,7 @@
   .sidebar__content {
     box-shadow: 0.25rem 0.25rem 0.25rem 0 var(--surface-0),
       0.25rem -0.25rem 0.25rem 0 var(--surface-0);
-    display: flex !important;
-    width: 18rem;
+    transform: translateX(0);
+    left: 0;
   }
 }
