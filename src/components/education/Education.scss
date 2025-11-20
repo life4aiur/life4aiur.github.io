@@ -1,0 +1,59 @@
+// Education Block
+.education {
+  &__header {
+    margin-bottom: 4rem;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__card {
+    border-left: 4px solid var(--primary-color);
+
+    .p-avatar img {
+      border: 2px solid var(--primary-color);
+    }
+  }
+
+  &__content {
+    line-height: 1.6;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .education {
+    &__content {
+      .flex {
+        flex-direction: column;
+        align-items: center !important;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .p-avatar {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .education {
+    &__header {
+      margin-bottom: 2rem;
+    }
+
+    &__content {
+      .flex-1 {
+        text-align: center;
+      }
+
+      .font-semibold,
+      .text-sm {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

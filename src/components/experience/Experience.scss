@@ -1,0 +1,82 @@
+// Experience Block
+.experience {
+  &__card {
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .p-avatar img {
+      border: 2px solid var(--primary-color-text);
+    }
+
+    .flex-1 {
+      display: flex;
+      gap: 1.5rem;
+
+      > div:first-child {
+        flex: 1;
+        min-width: 0; // Allow text to wrap properly
+      }
+
+      .text-right {
+        flex-shrink: 0;
+        min-width: 6rem; // Ensure years have enough space
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .experience {
+    &__card {
+      .flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 1rem;
+      }
+
+      .p-avatar {
+        align-self: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .justify-content-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+        text-align: center;
+        width: 100%;
+      }
+
+      .text-right {
+        text-align: center !important;
+        margin: 0;
+        width: 100%;
+      }
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .experience {
+    &__card {
+      .font-bold {
+        font-size: 1rem;
+      }
+
+      .line-height-3 {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+// Skills Block
+.skills {
+  h2 {
+    min-height: 2.5rem;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    min-height: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  // Ensure first sections in columns have equal height
+  .skills-column > .skills__list:first-of-type,
+  .impact-column > .skills__list:first-of-type {
+    min-height: 380px; // Adjust based on content
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 3rem; // Consistent spacing between sections
+  }
+
+  &__item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 1.5rem;
+
+    &:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      transform: translateX(5px);
+      color: var(--primary-color);
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .skills {
+    // Better spacing on medium screens
+    &__item {
+      font-size: 1.05rem;
+      padding: 0.6rem 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    &__item {
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      padding-left: 1.25rem;
+
+      &:hover {
+        transform: translateX(3px);
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .skills {
+    &__item {
+      font-size: 0.9rem;
+      padding: 0.4rem 0;
+      padding-left: 1rem;
+    }
+  }
+}

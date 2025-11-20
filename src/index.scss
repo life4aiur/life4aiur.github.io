@@ -1,43 +1,4 @@
-//@import "primereact/resources/themes/arya-orange/theme.css";
-//@import "primereact/resources/themes/lara-dark-blue/theme.css";
-//@import "primereact/resources/themes/viva-dark/theme.css";
-
-@import "primereact/resources/themes/vela-orange/theme.css";
-@import "primereact/resources/primereact.min.css";
-@import "primeicons/primeicons.css";
-@import "primeflex/primeflex.css";
-
-* {
-  --font-family: Ubuntu, sans-serif;
-}
-
-body {
-  background-color: var(--surface-100);
-  color: var(--text-color);
-  font-family: var(--font-family);
-  font-weight: 400;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 #root {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-
-  // > .app__content {
-  //   margin-top: 56px;
-  //   overflow-y: auto;
-  //   -webkit-overflow-scrolling: touch;
-  // }
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.p-component {
-  font-family: var(--font-family);
+  width: 100%;
+  min-height: 100vh;
 }

@@ -1,6 +1,6 @@
 // App-level styles only - components import their own styles
-@use "styles/variables" as vars;
-@use "styles/responsive";
+@use "../../styles/variables" as vars;
+@use "../../styles/responsive";
 
 // Main App Styles
 :root {
@@ -15,9 +15,15 @@
   max-width: vars.$container-max-width;
   margin: 0 auto;
   padding: 0 vars.$container-padding;
+
+  > h2 {
+    padding-bottom: 0.75rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--primary-color);
+  }
 }
 
-// Header Block
+// Header
 .header {
   position: fixed;
   top: 0;
@@ -25,54 +31,38 @@
   right: 0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-  &__theme-toggle {
-    position: absolute;
-    right: 1rem;
-    height: 2.5rem;
-    width: 2.5rem;
-    top: 1rem;
-  }
 }
 
-// Section Block
-.section {
+.theme-toggle {
+  position: absolute;
+  right: 1rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  top: 1rem;
+}
+
+// Section Styles
+section {
   padding: 4rem 0;
-
-  &__title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-  }
-
-  &__subtitle {
-    font-size: 16px;
-    color: var(--primary-color);
-    letter-spacing: 0.15em;
-    margin-bottom: 2rem;
-    font-weight: 500;
-  }
-
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-
-    &--three-column {
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 3rem;
-    }
-  }
 }
 
-// About Block
-.about {
-  &__text {
-    font-size: 21px;
-    line-height: 2;
-    max-width: 800px;
-  }
+.about-text {
+  font-size: 21px;
+  line-height: 2;
+  max-width: 800px;
+}
+
+// Grid Layouts
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.skills-three-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
 }
 
 // Timeline Styles
@@ -124,12 +114,12 @@ html {
     &__grid {
       grid-template-columns: 1fr;
       gap: 2rem;
-
-      &--three-column {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
     }
+  }
+
+  .skills-three-column-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .about {
@@ -171,14 +161,16 @@ html {
   }
 }
 
-// Medium screens - tablets
+// Medium screens - tablets (progressive column reduction)
 @media (max-width: vars.$breakpoint-tablet) and (min-width: calc(vars.$breakpoint-mobile + 1px)) {
+  .skills-three-column-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
   .section {
     &__grid {
-      &--three-column {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-      }
+      gap: 3rem;
     }
   }
 }
@@ -187,5 +179,9 @@ html {
 @media (max-width: 1200px) and (min-width: calc(vars.$breakpoint-tablet + 1px)) {
   .container {
     max-width: 90%;
+  }
+
+  .skills-three-column-grid {
+    gap: 2.5rem;
   }
 }

@@ -1,0 +1,172 @@
+// Projects Block
+.projects {
+  padding: 4rem 0;
+  overflow: visible !important; // Allow shadows to extend
+
+  .p-carousel {
+    padding: 2rem 0; // Increased padding to give space for shadows
+    overflow: visible !important; // Allow hover effects at carousel level
+
+    &-container {
+      overflow: visible !important;
+    }
+
+    &-content {
+      overflow: visible !important;
+      padding: 1rem 0; // Add vertical padding for shadow space
+    }
+
+    &-items-container {
+      overflow: visible !important;
+    }
+
+    &-item {
+      padding: 1rem 0.5rem; // Increased vertical padding
+      overflow: visible !important; // Allow hover effects to extend beyond container
+
+      .projects__repo-card {
+        height: 100%;
+        min-height: 380px; // Increased from 300px for bigger cards
+      }
+    }
+  }
+
+  &__repo-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+      border-color 0.3s ease;
+    border: 2px solid transparent; // Add border for pop effect
+    border-radius: 8px; // Slightly more rounded
+    background: linear-gradient(
+      135deg,
+      var(--surface-card) 0%,
+      var(--surface-ground) 100%
+    );
+
+    &:hover {
+      transform: translateY(-8px) scale(1.02); // Increased lift and slight scale
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25) !important; // Stronger shadow
+      border-color: var(--primary-color); // Colored border on hover
+    }
+
+    .p-card-title {
+      padding: 0.5rem 0;
+      border-bottom: 3px solid var(--primary-color);
+      margin-bottom: 1rem;
+      background-color: rgba(var(--primary-color-rgb), 0.08);
+      padding: 1rem;
+      border-radius: 4px;
+
+      a {
+        text-decoration: none;
+        transition: all 0.3s ease;
+        color: var(--text-color);
+        font-size: 1.5rem; // Increased from 1.3rem
+        font-weight: 700; // Bolder from 600
+        display: block;
+        letter-spacing: 0.5px; // Add slight letter spacing
+
+        &:hover {
+          color: var(--primary-color) !important;
+          transform: scale(1.05);
+          display: block;
+        }
+      }
+    }
+
+    .p-card-body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem; // Increased from 1.5rem for bigger cards
+    }
+
+    .p-card-content {
+      height: 100%;
+      font-size: 1.1rem; // Increased from 1.05rem
+      line-height: 1.7; // Increased from 1.6
+    }
+
+    a {
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.2s ease;
+      color: var(--text-color-secondary);
+      display: inline-flex;
+      align-items: center;
+      font-size: 1rem; // Larger footer text
+      padding: 0.5rem 0.75rem; // Add padding for better click area
+      border-radius: 4px;
+      background-color: rgba(var(--primary-color-rgb), 0.05);
+
+      &:hover {
+        color: var(--primary-color) !important;
+        transform: translateY(-2px);
+        background-color: rgba(var(--primary-color-rgb), 0.1);
+      }
+
+      i {
+        font-size: 1.1rem; // Larger icons
+      }
+    }
+  }
+}
+
+// Dev icons for language display
+.devicon-typescript-plain,
+.devicon-javascript-plain,
+.devicon-python-plain,
+.devicon-java-plain,
+.devicon-react-original,
+.devicon-html5-plain,
+.devicon-css3-plain {
+  font-size: 1.1rem; // Increased icon size
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .projects {
+    padding: 3rem 0;
+
+    .p-carousel {
+      &-item {
+        padding: 0 0.25rem;
+
+        .projects__repo-card {
+          min-height: 200px;
+        }
+      }
+    }
+
+    &__repo-card {
+      &:hover {
+        transform: none;
+      }
+
+      .p-card-title {
+        font-size: 1.1rem;
+      }
+
+      .p-card-content {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 2rem 0;
+
+    &__repo-card {
+      min-height: 180px;
+
+      .p-card-title {
+        font-size: 1rem;
+      }
+
+      .p-card-content {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}

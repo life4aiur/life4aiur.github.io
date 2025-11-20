@@ -1,0 +1,52 @@
+@use "variables" as vars;
+
+// Responsive Design
+@media (max-width: vars.$breakpoint-mobile) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .theme-toggle {
+    top: 0.875rem;
+  }
+
+  .name {
+    font-size: 48px;
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .skills-three-column-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .education-content {
+    text-align: center;
+  }
+
+  .education-header {
+    margin-bottom: 3rem;
+  }
+}
+
+// Medium screens - tablets
+@media (max-width: vars.$breakpoint-tablet) {
+  .skills-three-column-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
