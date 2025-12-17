@@ -108,13 +108,12 @@ html {
     }
   }
 
-  .section {
+  section {
     padding: 3rem 0;
+  }
 
-    &__grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
+  .section-grid {
+    gap: 2rem;
   }
 
   .skills-three-column-grid {
@@ -141,8 +140,16 @@ html {
     padding: 0 10px;
   }
 
-  .section {
+  section {
     padding: 2rem 0;
+  }
+
+  .section-grid {
+    gap: 1rem;
+  }
+
+  .skills-three-column-grid {
+    gap: 1rem;
   }
 
   .about {
@@ -166,12 +173,6 @@ html {
   .skills-three-column-grid {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-  }
-
-  .section {
-    &__grid {
-      gap: 3rem;
-    }
   }
 }
 

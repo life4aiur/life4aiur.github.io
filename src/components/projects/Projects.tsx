@@ -147,7 +147,7 @@ function Projects({ id }: SectionProps) {
         <h2>Projects</h2>
         {repoList.length > 0 ? (
           <Carousel
-            className="-mx-8 md:-mx-5 sm:mx-0"
+            className="-mx-2 xl:-mx-8 lg:-mx-8 md:-mx-5 sm:-mx-1"
             value={repoList}
             numVisible={2}
             numScroll={1}

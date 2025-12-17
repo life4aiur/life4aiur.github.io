@@ -66,6 +66,23 @@
 
 @media (max-width: 768px) {
   .skills {
+    h2 {
+      min-height: unset;
+    }
+
+    .section-subtitle {
+      min-height: unset;
+    }
+
+    .skills-column > .skills__list:first-of-type,
+    .impact-column > .skills__list:first-of-type {
+      min-height: unset;
+    }
+
+    &__list {
+      margin-bottom: 1.5rem;
+    }
+
     &__item {
       font-size: 1rem;
       padding: 0.5rem 0;
